@@ -2,5 +2,8 @@
 *.png
 *.jpg
 
+*.csv
+
+data/
 images/
 output/
