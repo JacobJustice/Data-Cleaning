@@ -55,7 +55,7 @@ def crop_image(image_fn, directory="./images/"):
         print("min i:", min_i,"\t","max i:", max_i)
         print("min j:", min_j,"\t","max j:", max_j,'\n')
         pil_image = pil_image.crop((min_j, min_i, max_j, max_i))
-        pil_image = pil_image.resize((625,375))
+        pil_image = pil_image.resize((156,94))
         pil_image.save("./outputs/" + image_fn)
 
     except KeyboardInterrupt as e:

@@ -13,7 +13,7 @@ generate a name for each pixel and each color within it
 
 return a dictionary with each titled pixel
 
-ex: {'ticker':
+ex: {'filename':
 
 """
 def generate_row(image_name, directory_path="./", header="filename"):
@@ -64,7 +64,7 @@ def generate_csv_from_directory(directory_path="./", header="filename", csv_outp
     return 
 
 def main():
-    print(generate_csv_from_directory("./outputs/"))
+    print(generate_csv_from_directory("./outputs/", "ticker"))
 
 if __name__ == "__main__":
     main()
