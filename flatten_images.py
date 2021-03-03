@@ -1,8 +1,10 @@
 import csv
+import sys
 import numpy as np
 from PIL import Image
 from os import listdir
 from os.path import isfile, join
+import argparse
 
 from pprint import pprint
 
@@ -16,7 +18,7 @@ return a dictionary with each titled pixel
 ex: {'filename':
 
 """
-def generate_row(image_name, directory_path="./", header="filename"):
+def generate_rgb_row(image_name, directory_path="./", header="filename"):
     output_dict = {header:image_name[image_name.rfind('/')+1:image_name.rfind('.')]}
     print("Loading image:", image_name)
     image = np.array(Image.open(directory_path + image_name))
@@ -52,19 +54,23 @@ def generate_csv_from_directory(directory_path="./", header="filename", csv_outp
         csvwriter = None
         for i, image in enumerate(onlyfiles):
             if i==0:
-                first_row = generate_row(image, directory_path, header=header)
+                first_row = generate_rgb_row(image, directory_path, header=header)
                 csvwriter = csv.DictWriter(csvfile, fieldnames=first_row.keys())
                 csvwriter.writeheader()
                 csvwriter.writerow(first_row)
             else:
                 print(i)
-                csvwriter.writerow(generate_row(image, directory_path, header=header))
+                csvwriter.writerow(generate_rgb_row(image, directory_path, header=header))
                 print()
 
     return 
 
 def main():
-    print(generate_csv_from_directory("./outputs/", "ticker"))
+    parser = argparse.ArgumentParser(description='Auto-crop a directory of images')
+    parser.add_argument('-d','--directory', required=True, help='directory you wish to auto-crop all images in')
+    parser.add_argument('-o','--output', default='./output.csv', help='desired output file')
+    args = parser.parse_args(sys.argv[1:])
+    print(generate_csv_from_directory(args.directory, "ticker", args.output))
 
 if __name__ == "__main__":
     main()
