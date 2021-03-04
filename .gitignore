@@ -1,4 +1,6 @@
 test.py
+stock_check.py
+shoelist.txt
 
 *.jpeg
 *.png
@@ -9,3 +11,5 @@ test.py
 data/
 images/
 output/
+
+
