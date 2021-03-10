@@ -1,5 +1,3 @@
-test.py
-stock_check.py
 shoelist.txt
 
 *.jpeg
@@ -7,6 +5,7 @@ shoelist.txt
 *.jpg
 
 *.csv
+*.zip
 
 data/
 images/

@@ -59,7 +59,7 @@ def crop_image(image_fn, directory="./images/", output_directory='./outputs/'):
         print("min i:", min_i,"\t","max i:", max_i)
         print("min j:", min_j,"\t","max j:", max_j)
         pil_image = pil_image.crop((min_j, min_i, max_j, max_i))
-        pil_image = pil_image.resize((25,20))
+        pil_image = pil_image.resize((13,10))
 
         save_string = output_directory + image_fn[:-4]+'.png'
         print("Saving...",save_string,'\n')
