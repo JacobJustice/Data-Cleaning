@@ -7,6 +7,8 @@ shoelist.txt
 *.csv
 
 data/
+*.zip
+
 images/
 output/
 
