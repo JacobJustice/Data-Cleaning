@@ -5,6 +5,7 @@ shoelist.txt
 *.jpg
 
 *.csv
+*.zip
 
 data/
 *.zip
