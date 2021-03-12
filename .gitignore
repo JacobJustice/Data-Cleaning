@@ -8,7 +8,6 @@ shoelist.txt
 *.zip
 
 data/
-*.zip
 
 images/
 output/
