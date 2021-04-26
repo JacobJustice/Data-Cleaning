@@ -26,7 +26,7 @@ pixel that is non-white (determined by a threshold).
 
 @output: returns nothing but saves the cropped image to output_directory
 """
-def crop_image(image_fn, directory="./images/", output_directory='./outputs/'):
+def crop_image(image_fn, directory="./images/", output_directory='./outputs/', output_fn=None):
     print("Loading:", directory+image_fn)
     try:
         pil_image = Image.open(directory + image_fn)
@@ -61,7 +61,10 @@ def crop_image(image_fn, directory="./images/", output_directory='./outputs/'):
         pil_image = pil_image.crop((min_j, min_i, max_j, max_i))
         pil_image = pil_image.resize((13,10))
 
-        save_string = output_directory + image_fn[:-4]+'.png'
+        if output_fn != None:
+            save_string = output_fn
+        else:
+            save_string = output_directory + image_fn[:-4]+'.png'
         print("Saving...",save_string,'\n')
         pil_image.save(save_string)
 
